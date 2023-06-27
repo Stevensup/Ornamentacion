@@ -76,4 +76,5 @@ class RegisterController extends Controller
             'rol' => 1
         ]);
     }
+         
 }

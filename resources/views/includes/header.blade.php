@@ -99,7 +99,6 @@
         </div>
         <div class="logo">
             <h3>Ornamentadores SAS</h3>
-            @include('includes.redes')
         </div>
         <nav>
             <ul>
@@ -109,7 +108,7 @@
                     <li class="dropdown">
                         <ul class="dropdown-content">
                             <li><a href="/pedidos" class="white-text">Pedidos</a></li>
-                            <li><a href="/usuarios" class="white-text">Usuarios</a></li>
+                            <li><a href="usuarios" class="white-text">Usuarios</a></li>
                             <li><a href="/tareas" class="white-text">Tareas</a></li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"

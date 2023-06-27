@@ -3,6 +3,7 @@
 <div class="my-5 mx-2">
 
     <div class="row my-5">
+    <center>
         <div class="col-10 col-md-9 text-center">
             <h1>Productos</h1>
         </div>
@@ -10,6 +11,7 @@
             <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">Adicionar Producto</button>
         </div>
+        </center>
     </div>
 
     <div class="row">
