@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/inventario', function () {
+    return view('productos');
+});
+
 Route::get('productos', [InventarioController::class, 'index']);
 Route::post('insertarProductos', [InventarioController::class, 'create'])->name('insertarProductos');
 

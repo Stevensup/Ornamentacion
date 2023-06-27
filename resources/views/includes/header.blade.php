@@ -94,24 +94,32 @@
         </div>
         <div class="logo">
             <h3>Ornamentadores SAS</h3>
-            {{-- <h5>{{ Auth::user()->name }}</h5> --}}
+            @include('includes.redes')
         </div>
         <nav>
             <ul>
                 <li><a href="/" class="white-text">Inicio</a></li>
                 <li><a href="/productos" class="white-text">Productos</a></li>
-                @if (!Auth::user())
-                    <li><a href="/login" class="white-text">Iniciar Sesion</a></li>
+                @if (Auth::user())
+                    <li class="dropdown">
+                        <ul class="dropdown-content">
+                            <li><a href="/pedidos" class="white-text">Pedidos</a></li>
+                            <li><a href="/tareas" class="white-text">Usuarios</a></li>
+                            <li><a href="/usuarios" class="white-text">Tareas</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                    {{ __('Cerrar Sesión') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
                 @else
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                    <li><a href="/login" class="white-text">Iniciar Sesión</a></li>
                 @endif
             </ul>
         </nav>
