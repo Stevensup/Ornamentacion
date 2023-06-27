@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Estilos generales */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background-color: #CA0202;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            font-size: 16px;
+            background-color: #2C2C2E;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+
+        .rights {
+            text-align: center;
+        }
+
+        .vision-button,
+        .mision-button {
+            background-color: #2C2C2E;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 35px;
+        }
+
+        /* Estilos del modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 500px;
+        }
+
+        .modal h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .modal p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .modal button {
+            background-color: #6b7070;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Contenido de la página -->
+
+    <footer>
+        <div class="contact-info">Contacto: 3135770499</div>
+        <p class="rights">© 2023 Lilian Pire y Gabriela Portela - Todos los derechos reservados</p>
+        <div>
+            <button class="vision-button" onclick="openModal('vision-modal')">Visión</button>
+            <button class="mision-button" onclick="openModal('mision-modal')">Misión</button>
+        </div>
+    </footer>
+
+    <div id="vision-modal" class="modal">
+        <div class="modal-content">
+            <h2>Visión</h2>
+            <p>Ser una empresa líder a nivel nacional brindando soluciones en el mercado de los servicios que ofrecemos,
+                garantizando la calidad de nuestros servicios y productos, actualizándonos constantemente de acuerdo a
+                la tendencia en tecnología.</p>
+            <button onclick="closeModal('vision-modal')">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="mision-modal" class="modal">
+        <div class="modal-content">
+            <h2>Misión</h2>
+            <p>Ser una empresa líder a nivel nacional brindando soluciones en el mercado de los servicios que ofrecemos,
+                garantizando la calidad de nuestros servicios y productos, actualizándonos constantemente de acuerdo a
+                la tendencia en tecnología.</p>
+            <button onclick="closeModal('mision-modal')">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>
