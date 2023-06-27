@@ -80,11 +80,11 @@
             }
         }
     </style>
-     <!-- Scripts -->
-     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
-     <!-- Styles -->
-     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -94,15 +94,25 @@
         </div>
         <div class="logo">
             <h3>Ornamentadores SAS</h3>
+            {{-- <h5>{{ Auth::user()->name }}</h5> --}}
         </div>
         <nav>
             <ul>
                 <li><a href="/" class="white-text">Inicio</a></li>
-                {{-- <li><a href="/QuienesSomos" class="white-text">Quiénes somos</a></li> --}}
-                {{-- <li><a href="/Servicios" class="white-text">Servicios</a></li> --}}
                 <li><a href="/productos" class="white-text">Productos</a></li>
-                {{-- <li><a href="/Contacto" class="white-text">Contacto</a></li> --}}
-                <li><a href="/login" class="white-text">Iniciar Sesion</a></li>
+                @if (!Auth::user())
+                    <li><a href="/login" class="white-text">Iniciar Sesion</a></li>
+                @else
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                @endif
             </ul>
         </nav>
         <div class="mobile-menu">Menú</div>
