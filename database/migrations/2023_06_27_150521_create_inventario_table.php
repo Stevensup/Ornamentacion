@@ -17,9 +17,9 @@ class CreateInventarioTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('despcripcion');
-            $table->longText('url_imagen');
+            $table->string('url_imagen',1000);
             $table->integer('cantidad');
-            $table->decimal('precio_unitario');
+            $table->integer('precio_unitario');
             $table->tinyInteger('estado');
             $table->timestamps();
         });

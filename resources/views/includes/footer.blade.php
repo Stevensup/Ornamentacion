@@ -5,25 +5,25 @@
     <style>
         /* Estilos generales */
         html,
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
+        .contenedor {
+            min-height: 100vh;
+            /*importante*/
+            position: relative;
+            /*importante*/
         }
 
-        /* Estilos del pie de página */
         footer {
-            position: relative;
+            background-color: red;
+            color: white;
+            padding: 15px;
             bottom: 0;
-            width: 100%;
-            background-color: #CA0202;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
+
+        /*coloca esto si deseas eliminar el margen*/
+        body {
+            margin: 0;
+        }
+
 
         .contact-info {
             font-size: 16px;
@@ -49,7 +49,6 @@
             margin-right: 35px;
         }
 
-        /* Estilos del modal */
         .modal {
             position: fixed;
             top: 0;
@@ -96,7 +95,7 @@
 <body>
     <!-- Contenido de la página -->
 
-    <footer>
+    <footer class="footer">
         <div class="contact-info">Contacto: 3135770499</div>
         <p class="rights">© 2023 Lilian Pire y Gabriela Portela - Todos los derechos reservados</p>
         <div>
@@ -105,7 +104,7 @@
         </div>
     </footer>
 
-    <div id="vision-modal" class="modal">
+    {{-- <div id="vision-modal" class="modal">
         <div class="modal-content">
             <h2>Visión</h2>
             <p>Ser una empresa líder a nivel nacional brindando soluciones en el mercado de los servicios que ofrecemos,
@@ -136,7 +135,7 @@
             modal.style.display = 'none';
         }
     </script>
-
+ --}}
 </body>
 
 </html>

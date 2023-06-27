@@ -81,7 +81,12 @@
         }
     </style>
     <!-- Scripts -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script>
+        feather.replace()
+    </script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
