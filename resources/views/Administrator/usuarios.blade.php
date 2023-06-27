@@ -68,7 +68,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <input type="text" class="form-control" id="name" name="name" pattern="[A-Za-z\s]+" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="form-group">
                         <label for="edad">Edad</label>
-                        <input type="number" class="form-control" id="edad" name="edad" required>
+                        <input type="number" class="form-control" id="edad" name="edad" min="0" max="116" required>
                     </div>
                     <div class="form-group">
                         <label for="genero">Género</label>
