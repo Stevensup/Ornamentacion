@@ -18,8 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/inventario', function () {
-    return view('productos');
+Route::get('/tareas', function () {
+    return view('administrator/tareas');
+});
+Route::get('/usuarios', function () {
+    return view('administrator/usuarios');
+});
+Route::get('/pedidos', function () {
+    return view('administrator/pedidos');
 });
 
 Route::get('productos', [InventarioController::class, 'index']);
