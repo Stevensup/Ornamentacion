@@ -34,7 +34,7 @@ class InventarioController extends Controller
         $inventario->save();
 
         if($inventario){
-           return redirect('productos');
+            return redirect('productos');
         }
 
     }
@@ -45,5 +45,22 @@ class InventarioController extends Controller
         $producto->save();
 
         if($producto) return redirect(('productos'));
+    }
+
+    function updateProducto(Request $request){
+
+        $location = 'public/productosImagenes';
+
+        $path = Storage::put($location, $request->file('formFile'));
+
+        $inventario = Inventario::find($request->inventario_id);
+        $inventario->nombre = $request['nombreProducto'];
+        $inventario->descripcion = $request['descripcion'];
+        $inventario->url_imagen = Storage::url($path);
+        $inventario->cantidad = $request['cantidad'];
+        $inventario->precio_unitario = $request['precio_unitario'];
+        $inventario->update();
+
+        if($inventario) return redirect(('productos'));
     }
 }
