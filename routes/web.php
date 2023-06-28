@@ -37,9 +37,8 @@ Route::get('/pedidos', function () {
 Route::get('productos', [InventarioController::class, 'index']);
 Route::post('insertarProductos', [InventarioController::class, 'create'])->name('insertarProductos');
 Route::get('inactive/{id}', [InventarioController::class, 'inactiveProduct']);
-Auth::routes(
-    
-);
+Route::post('actualizar', [InventarioController::class, 'updateProducto'])->name('actualizarProducto');
+Auth::routes();
 Route::get('usuarios', [UserController::class, 'showUsers']);
 Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
 Route::get('/users', [UserController::class, 'users'])->name('users');
