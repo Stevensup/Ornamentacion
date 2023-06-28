@@ -18,7 +18,7 @@ class CreateOrdenesTable extends Migration
             $table->string('email');
             $table->text('descripcion');
             $table->string('tipo_servicio');
-            $table->unsignedBigInteger('id_empleado');
+            $table->unsignedBigInteger('id_empleado')->nullable(true);
             $table->integer('estado')->default(0);
             $table->timestamps();
 
