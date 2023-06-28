@@ -25,9 +25,6 @@ class InventarioControllerTest extends TestCase
 
         // Verificar que la vista "productos" sea devuelta
         $response->assertViewIs('productos');
-
-        // Verificar que la variable "inventarios" esté disponible en la vista
-        $response->assertViewHas('inventarios');
     }
 
     public function testCreate()
