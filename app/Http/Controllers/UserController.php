@@ -46,12 +46,16 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'edad' => 'required|integer',
             'genero' => 'required|in:masculino,femenino',
+            'rol' => 'required|in:1,2,3',
+            'estado' => 'required|boolean',
         ]);
 
         $user->name = $request->name;
         $user->email = $request->email;
         $user->edad = $request->edad;
         $user->genero = $request->genero;
+        $user->rol = $request->rol;
+        $user->estado = $request->estado;
         $user->save();
 
         return redirect()->route('users')->with('success', 'Usuario actualizado exitosamente');
@@ -74,7 +78,7 @@ class UserController extends Controller
             'password' => bcrypt($request->password),
             'edad' => $request->edad,
             'genero' => $request->genero,
-            'estado' => true,
+            'estado' => $request->estado == '1' ? true : false,
             'rol' => $request->rol,
         ]);
 

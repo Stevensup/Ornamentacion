@@ -30,8 +30,14 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->genero }}</td>
                                 <td>{{ $user->edad }}</td>
-                                <td>{{ $user->estado }}</td>
-                                <td>{{ $user->rol }}</td>
+                                <td>{{ $user->estado ? 'Activo' : 'Inactivo' }}</td>
+                                <td> @if($user->rol == 1)
+                                        Administrador
+                                    @elseif($user->rol == 2)
+                                        Empleado
+                                    @elseif($user->rol == 3)
+                                        Cliente
+                                    @endif</td>
                                 <td>
                                     <form action="{{ route('user.destroy', $user->id) }}" method="POST"
                                         style="display: inline;">
@@ -153,11 +159,18 @@
                         <div class="form-group">
                             <label for="rol">Rol</label>
                             <select class="form-control" id="rol" name="rol" required>
-                                <option value="1" {{ $user->rol == 1 ? 'selected' : '' }}>Administrator</option>
+                                <option value="1" {{ $user->rol == 1 ? 'selected' : '' }}>Administrador</option>
                                 <option value="2" {{ $user->rol == 2 ? 'selected' : '' }}>Empleado</option>
                                 <option value="3" {{ $user->rol == 3 ? 'selected' : '' }}>Cliente</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="estado" name="estado" {{ $user->estado ? 'checked' : '' }}>
+                        </div>
+                    </div>
+
                         <button type="submit" class="btn btn-primary">Actualizar</button>
                     </form>
                 </div>
@@ -165,3 +178,4 @@
         </div>
     </div>
 @endforeach
+

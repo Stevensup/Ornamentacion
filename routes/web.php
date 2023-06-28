@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/Contacto', function () {
+    return view('Contacto');
+});
+Route::post('/contacto', [ContactoController::class, 'store'])->name('safemessage');
 
 
 Route::get('/tareas', function () {
