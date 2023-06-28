@@ -30,13 +30,6 @@ class UserController extends Controller
         return redirect()->route('users')->with('success', 'Usuario eliminado exitosamente');
     }
 
-    public function edit($id)
-    {
-        $user = User::findOrFail($id); // Obtener el usuario por su ID
-
-        return view('Administrator.editar-usuario', compact('user'));
-    }
-
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id); // Obtener el usuario por su ID
@@ -78,8 +71,8 @@ class UserController extends Controller
             'password' => bcrypt($request->password),
             'edad' => $request->edad,
             'genero' => $request->genero,
-            'estado' => $request->estado == '1' ? true : false,
             'rol' => $request->rol,
+            'estado' => 1,
         ]);
 
         return redirect()->route('users')->with('success', 'Usuario creado exitosamente');

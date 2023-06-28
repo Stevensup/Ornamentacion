@@ -49,23 +49,6 @@ class UserControllerTest extends TestCase
         $this->assertDatabaseMissing('users', ['id' => $user->id]);
     }
 
-    public function testEdit()
-    {
-        // Crear un usuario de prueba en la base de datos
-        $user = User::factory()->create();
-
-        // Hacer una solicitud GET a la ruta "user.edit" con el ID del usuario
-        $response = $this->get("/usuarios/{$user->id}/edit");
-
-        // Verificar que la respuesta tenga el código HTTP 200 (OK)
-        $response->assertStatus(Response::HTTP_OK);
-
-        // Verificar que la vista "Administrator.editar-usuario" sea devuelta
-        $response->assertViewIs('Administrator.editar-usuario');
-
-        // Verificar que la variable "user" esté disponible en la vista
-        $response->assertViewHas('user');
-    }
 
     public function testUpdate()
     {
@@ -125,7 +108,7 @@ class UserControllerTest extends TestCase
             'edad' => $data['edad'],
             'genero' => $data['genero'],
             'rol' => $data['rol'],
-            'estado' => false, // El estado predeterminado es false
+
         ]);
 
         // Verificar que la contraseña del usuario se haya hasheado correctamente

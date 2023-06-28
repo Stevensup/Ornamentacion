@@ -269,13 +269,11 @@
 </head>
 <body>
 @include('includes.header')
-
 <div class="content">
   <div class="wrapper">
     <div class="title">
       Formulario de Ordenes
     </div>
-
         <form class="form" action="{{ route('safemessage') }}" method="POST">
       @csrf
       <input type="text" class="name entry" placeholder="Nombre" style="color: #000;" name="nombre">
@@ -283,20 +281,16 @@
       <textarea class="message entry" placeholder="Mensaje" style="color: #000;" name="descripcion"></textarea>
       <select class="entry" name="tipo_servicio">
         <option value="">Seleccionar tipo de servicio</option>
-        <option value="Servicio 1">Servicio 1</option>
-        <option value="Servicio 2">Servicio 2</option>
-        <option value="Servicio 3">Servicio 3</option>
-        <option value="Servicio 4">Servicio 4</option>
+        <option value="Cotizacion">Cotizacion</option>
+        <option value="Reparacion">Reparacion</option>
+        <option value="Configuracion">Configuracion</option>
+        <option value="Instalacion">Instalacion</option>
       </select>
       <button class="submit entry" onclick="thanks()">Enviar</button>
     </form>
-
-
-
     <div class="shadow"></div>
   </div>
 </div>
-
 <div id="myModal" class="modal">
   <div class="modal-content">
     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
@@ -306,7 +300,6 @@
     <p>Mensaje enviado correctamente</p>
   </div>
 </div>
-
 @include('includes.footer')
 
 <script>

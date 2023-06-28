@@ -36,13 +36,12 @@ Route::get('/pedidos', function () {
 
 Route::get('productos', [InventarioController::class, 'index']);
 Route::post('insertarProductos', [InventarioController::class, 'create'])->name('insertarProductos');
-Route::get('inactive/{id}', [InventarioController::class, 'inactiveProduct']);Route::get('inactive/{id}', [InventarioController::class, 'inactiveProduct']);
-
+Route::get('inactive/{id}', [InventarioController::class, 'inactiveProduct']);
 Auth::routes(
     
 );
 Route::get('usuarios', [UserController::class, 'showUsers']);
-Route::get('/users/create', [RegisterController::class, 'create'])->name('user.create');
+Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
 Route::get('/users', [UserController::class, 'users'])->name('users');
 Route::post('/users', [UserController::class, 'create'])->name('user.create');
 Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('user.destroy');
