@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\InventarioController;
-use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\OrdenesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 

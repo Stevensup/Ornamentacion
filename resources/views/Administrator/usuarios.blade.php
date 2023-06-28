@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @include('includes.header')
 @section('content')
+<div class="container" style="background: linear-gradient(to bottom, #eeeeee, #dddddd);">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
