@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\InventarioController;
+use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,7 @@ Route::get('/', function () {
 Route::get('/Contacto', function () {
     return view('Contacto');
 });
-Route::post('/contacto', [ContactoController::class, 'store'])->name('safemessage');
+Route::post('/contacto', [OrdenesController::class, 'store'])->name('safemessage');
 
 
 Route::get('/tareas', function () {

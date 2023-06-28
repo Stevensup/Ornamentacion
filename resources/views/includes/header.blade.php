@@ -104,12 +104,13 @@
             <ul>
                 <li><a href="/" class="white-text">Inicio</a></li>
                 <li><a href="/productos" class="white-text">Productos</a></li>
+                <li><a href="/Contacto" class="white-text">Ordenes</a></li>
                 @if (Auth::user())
                     <li class="dropdown">
                         <ul class="dropdown-content">
                             <li><a href="/pedidos" class="white-text">Pedidos</a></li>
                             <li><a href="usuarios" class="white-text">Usuarios</a></li>
-                            <li><a href="/Contacto" class="white-text">Ordenes</a></li>
+                         
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
