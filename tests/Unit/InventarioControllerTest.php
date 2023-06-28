@@ -30,9 +30,9 @@ class InventarioControllerTest extends TestCase
     public function testCreate()
     {
         Storage::fake('public');
-
+    
         $file = UploadedFile::fake()->image('test.jpg');
-
+    
         $data = [
             'nombreProducto' => 'Producto de prueba',
             'descripcion' => 'Descripción de prueba',
@@ -40,13 +40,13 @@ class InventarioControllerTest extends TestCase
             'cantidad' => 10,
             'precio_unitario' => 9.99,
         ];
-
-        // Hacer una solicitud POST a la ruta "insertarProductos" con los datos de prueba
-        $response = $this->post('insertarProductos', $data);
-
+    
+        // Hacer una solicitud POST a la ruta "create" con los datos de prueba
+        $response = $this->post('create', $data);
+    
         // Verificar que se haya redirigido a la ruta "productos" después de crear el producto
         $response->assertRedirect('productos');
-
+    
         // Verificar que el producto se haya guardado en la base de datos
         $this->assertDatabaseHas('inventarios', [
             'nombre' => 'Producto de prueba',
@@ -55,10 +55,18 @@ class InventarioControllerTest extends TestCase
             'precio_unitario' => 9.99,
             'estado' => 1,
         ]);
-
+    
+        // Obtener el producto creado
+        $inventario = Inventario::where('nombre', 'Producto de prueba')->first();
+    
+        // Verificar que la URL de la imagen sea válida
+        $this->assertNotNull($inventario->url_imagen);
+    
         // Verificar que el archivo se haya almacenado correctamente en el almacenamiento
-        Storage::disk('public')->assertExists($response->baseResponse->original['inventario']->url_imagen);
+        Storage::disk('public')->assertExists($inventario->url_imagen);
     }
+    
+    
 
     public function testInactiveProduct()
     {
