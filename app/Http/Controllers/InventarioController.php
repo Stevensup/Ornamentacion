@@ -26,7 +26,7 @@ class InventarioController extends Controller
         $inventario = new Inventario;
 
         $inventario->nombre = $request['nombreProducto'];
-        $inventario->despcripcion = $request['descripcion'];
+        $inventario->descripcion = $request['descripcion'];
         $inventario->url_imagen = Storage::url($path);
         $inventario->cantidad = $request['cantidad'];
         $inventario->precio_unitario = $request['precio_unitario'];

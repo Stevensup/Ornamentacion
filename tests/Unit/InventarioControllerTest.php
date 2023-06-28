@@ -1,5 +1,4 @@
 <?php
-
 namespace Tests\Unit\Controllers;
 
 use App\Http\Controllers\InventarioController;
@@ -18,8 +17,8 @@ class InventarioControllerTest extends TestCase
         // Insertar datos de prueba en la base de datos
         Inventario::factory()->count(3)->create();
 
-        // Hacer una solicitud GET a la ruta "index"
-        $response = $this->get('/productos');
+        // Hacer una solicitud GET a la ruta "productos"
+        $response = $this->get('productos');
 
         // Verificar que la respuesta tenga el código HTTP 200 (OK)
         $response->assertStatus(200);
@@ -45,11 +44,11 @@ class InventarioControllerTest extends TestCase
             'precio_unitario' => 9.99,
         ];
 
-        // Hacer una solicitud POST a la ruta "create" con los datos de prueba
-        $response = $this->post('/create', $data);
+        // Hacer una solicitud POST a la ruta "insertarProductos" con los datos de prueba
+        $response = $this->post('insertarProductos', $data);
 
         // Verificar que se haya redirigido a la ruta "productos" después de crear el producto
-        $response->assertRedirect('/productos');
+        $response->assertRedirect('productos');
 
         // Verificar que el producto se haya guardado en la base de datos
         $this->assertDatabaseHas('inventarios', [
@@ -66,12 +65,12 @@ class InventarioControllerTest extends TestCase
 
     public function testInactiveProduct()
     {
-        $id = 1;
+        $inventario = Inventario::factory()->create();
 
-        // Hacer una solicitud GET a la ruta "inactiveProduct" con el ID del producto
-        $response = $this->get("/inactive-product/{$id}");
+        // Hacer una solicitud GET a la ruta "inactive/{id}" con el ID del producto
+        $response = $this->get("inactive/{$inventario->id}");
 
-        // Verificar que se haya realizado un dump and die (dd) con el ID
-        $response->assertSeeText($id);
+        // Verificar que se haya realizado un dump and die (dd) con el ID del producto
+        $response->assertSee($inventario->id);
     }
 }

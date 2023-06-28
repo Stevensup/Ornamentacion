@@ -25,7 +25,7 @@
                             style="height: 262px;">
                         <div class="card-body">
                             <h5 class="card-title">{{ $inventario->nombre }}</h5>
-                            <p class="card-text">{{ $inventario->despcripcion }}</p>
+                            <p class="card-text">{{ $inventario->descripcion }}</p>
                         </div>
                         <div class="card-footer">
                         <div class="row">
