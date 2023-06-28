@@ -1,12 +1,13 @@
 @include('includes.header')
+
 <head>
     <title>Productos</title>
     <style>
         .footer-wrapper {
-          position: fixed;
-          left: 0;
-          bottom: 0;
-          width: 100%;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
@@ -18,10 +19,12 @@
             <div class="col-10 col-md-9 text-center">
                 <h1>Productos</h1>
             </div>
-            <div class="col-2 col-md-3">
-                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">Adicionar Producto</button>
-            </div>
+            @if (Auth::user() && Auth::user()->rol == 1)
+                <div class="col-2 col-md-3">
+                    <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Adicionar Producto</button>
+                </div>
+            @endif
         </center>
     </div>
 
@@ -43,7 +46,7 @@
                                 <div class="col-md-6 d-flex justify-content-center">
                                     <a href="#" class="btn btn-primary">Agregar al carrito</a>
                                 </div>
-                                @if (Auth::user() && Auth::user()->rol)
+                                @if (Auth::user() && Auth::user()->rol == 1)
                                     <div class="col-md-3 d-flex justify-content-center">
                                         <button type="button" class="btn btn-warning w-100" data-bs-toggle="modal"
                                             data-bs-target="#edicionModal-{{ $inventario->id }}"><i
@@ -157,10 +160,10 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="nombreProducto" class="form-label">Nombre del producto</label>
-                                <input type="text" value="{{$inventario->nombre}}" class="form-control" id="nombreProducto"
-                                    @error('nombreProducto') is-invalid @enderror" name="nombreProducto"
-                                    value="{{ old('nombreProducto') }}" required autocomplete="nombreProducto"
-                                    autofocus>
+                                <input type="text" value="{{ $inventario->nombre }}" class="form-control"
+                                    id="nombreProducto" @error('nombreProducto') is-invalid @enderror"
+                                    name="nombreProducto" value="{{ old('nombreProducto') }}" required
+                                    autocomplete="nombreProducto" autofocus>
                                 @error('nombreProducto')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -170,7 +173,7 @@
                             <div class="mb-3">
                                 <label for="descripcion" class="form-label">Descripcion</label>
                                 <textarea class="form-control" id="descripcion" rows="3" @error('descripcion') is-invalid @enderror"
-                                    name="descripcion" value="{{ old('descripcion') }}" required autocomplete="descripcion" autofocus>{{$inventario->descripcion}}</textarea>
+                                    name="descripcion" value="{{ old('descripcion') }}" required autocomplete="descripcion" autofocus>{{ $inventario->descripcion }}</textarea>
 
                                 @error('descripcion')
                                     <span class="invalid-feedback" role="alert">
@@ -194,8 +197,8 @@
 
                             <div class="mb-3">
                                 <label for="cantidad" class="form-label">Cantidad</label>
-                                <input type="number" value="{{$inventario->cantidad}}" id="cantidad" class="form-control"
-                                    @error('cantidad') is-invalid @enderror" name="cantidad"
+                                <input type="number" value="{{ $inventario->cantidad }}" id="cantidad"
+                                    class="form-control" @error('cantidad') is-invalid @enderror" name="cantidad"
                                     value="{{ old('cantidad') }}" required autocomplete="cantidad" autofocus>
                                 @error('cantidad')
                                     <span class="invalid-feedback" role="alert">
@@ -206,7 +209,8 @@
 
                             <div class="mb-3">
                                 <label for="precio_unitario" class="form-label">Precio Unitario</label>
-                                <input type="number" value="{{$inventario->precio_unitario}}" id="precio_unitario" class="form-control"
+                                <input type="number" value="{{ $inventario->precio_unitario }}"
+                                    id="precio_unitario" class="form-control"
                                     @error('precio_unitario') is-invalid @enderror" name="precio_unitario"
                                     value="{{ old('precio_unitario') }}" required autocomplete="precio_unitario"
                                     autofocus>
@@ -216,7 +220,8 @@
                                     </span>
                                 @enderror
                             </div>
-                            <input type="hidden" id='inventario_id' name="inventario_id" value='{{$inventario->id}}'>
+                            <input type="hidden" id='inventario_id' name="inventario_id"
+                                value='{{ $inventario->id }}'>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary"
                                     data-bs-dismiss="modal">Close</button>
@@ -230,5 +235,5 @@
     </div>
 </div>
 <div class="footer-wrapper">
-        @include('includes.footer')
-        </div>
+    @include('includes.footer')
+</div>
