@@ -94,17 +94,19 @@
 
 <body>
     <!-- Contenido de la página -->
-
-    <footer class="footer">
-        <div class="contact-info">Contacto: 3135770499</div>
-        <p class="rights">© 2023 Lilian Pire y Gabriela Portela - Todos los derechos reservados</p>
-        <div>
+    <footer class="footer" style="height: 70px;">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>Contacto: 3135770499</div>
+        <div class="d-flex align-items-center">
+        <p class="rights text-center" style="margin-right: 400px;">© 2023 Lilian Pire y Gabriela Portela -</p>
             <button class="vision-button" onclick="openModal('vision-modal')">Visión</button>
             <button class="mision-button" onclick="openModal('mision-modal')">Misión</button>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    {{-- <div id="vision-modal" class="modal">
+
+     <div id="vision-modal" class="modal">
         <div class="modal-content">
             <h2>Visión</h2>
             <p>Ser una empresa líder a nivel nacional brindando soluciones en el mercado de los servicios que ofrecemos,
@@ -135,7 +137,7 @@
             modal.style.display = 'none';
         }
     </script>
- --}}
+ 
 </body>
 
 </html>
