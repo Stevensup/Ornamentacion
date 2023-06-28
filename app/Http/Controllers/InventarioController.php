@@ -10,7 +10,7 @@ class InventarioController extends Controller
 {
     function index(){
 
-        $inventarios = Inventario::all();
+        $inventarios = Inventario::where('estado', 1)->get();
 
         return view('productos', ['inventarios' => $inventarios]);
     }
@@ -40,6 +40,10 @@ class InventarioController extends Controller
     }
 
     function inactiveProduct($id){
-        dd($id);
+        $producto = Inventario::find($id);
+        $producto->estado = 0;
+        $producto->save();
+
+        if($producto) return redirect(('productos'));
     }
 }

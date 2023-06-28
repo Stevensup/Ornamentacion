@@ -36,7 +36,7 @@ Route::get('/pedidos', function () {
 
 Route::get('productos', [InventarioController::class, 'index']);
 Route::post('insertarProductos', [InventarioController::class, 'create'])->name('insertarProductos');
-Route::get('inactive', [InventarioController::class, 'inactiveProduct'])->name('inactivarProducto');
+Route::get('inactive/{id}', [InventarioController::class, 'inactiveProduct']);Route::get('inactive/{id}', [InventarioController::class, 'inactiveProduct']);
 
 Auth::routes(
     

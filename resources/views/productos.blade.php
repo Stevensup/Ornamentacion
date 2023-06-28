@@ -28,8 +28,19 @@
                             <p class="card-text">{{ $inventario->despcripcion }}</p>
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                            <i data-feather="circle"></i>
+                        <div class="row">
+                                <div class="col-md-6 d-flex justify-content-center">
+                                    <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                                </div>
+                                @if (Auth::user() && Auth::user()->rol)
+                                <div class="col-md-3 d-flex justify-content-center">
+                                    <a type="button"><i class="fas fa-pen-to-square fs-2"></i></a>
+                                </div>
+                                <div class="col-md-3 d-flex justify-content-center">
+                                    <a type="button" href="inactive/{{$inventario->id}}"><i class="far fa-trash-can fs-2"></i></a>
+                                </div>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
