@@ -112,7 +112,6 @@
                 @if (Auth::user())
                     <li class="dropdown">
                         <ul class="dropdown-content">
-                            <li><a href="/pedidos" class="white-text">Pedidos</a></li>
                             <li><a href="usuarios" class="white-text">Usuarios</a></li>
                          
                             <li>
