@@ -3,136 +3,91 @@
 
 <head>
     <style>
-        /* Estilos del encabezado */
-        header {
-            background-color: #CA0202;
-            padding: 10px;
+        @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+        /* Estilos generales */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lora', serif;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            height: 50px;
+            padding: 0 20px;
+            background-color: #fff; /* Cambiado a color blanco */
+            z-index: 999;
+            transition: background-color 0.3s;
+            font-family: 'Lora', serif; /* Aplica la fuente 'Lora' al header */
+            font-size: 16px;
+        }
+
+        .header a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .header .logo {
+            margin-right: auto;
+        }
+
+        .header .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .header .menu a {
+            margin: 0 10px;
+            padding: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .header .menu a:hover {
+            background-color: #455c86; /* Cambiado a azul oscuro */
+            color: #fff; /* Cambiado a color blanco */
+        }
+
+        .header .menu .right {
+            position: relative;
+            right: -407px; /* Ajusta el valor en píxeles según tus necesidades */
         }
 
         .logo img {
-            max-width: 120px;
-            max-height: 80px;
-        }
-
-        .logo h3 {
-            color: #ffffff;
-            font-size: 25px;
-            font-weight: 800;
-            padding-right: 8px;
-            align-items: center;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin-right: 10px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            background-color: #555;
-        }
-
-        .mobile-menu {
-            display: none;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        /* Estilos para dispositivos móviles */
-        @media (max-width: 480px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 10px 20px;
-            }
-
-            .logo {
-                margin-bottom: 10px;
-            }
-
-            nav ul {
-                flex-direction: column;
-            }
-
-            nav ul li {
-                margin-bottom: 5px;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
+            max-height: 80%;
+            max-width: 80%;
         }
     </style>
-    <!-- Scripts -->
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet" <blade
-        __scripts_0__ />
-
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
-    <header>
+    <br>
+    <br>
+    <header class="header">
         <div class="logo">
-            <img src="{{ asset('images/LogoOrnamentador.png') }}" alt="LOGO ORNAMENT">
+            <img src="{{ asset('images/Logo.png') }}" alt="Logo">
         </div>
-        <div class="logo">
-            <h3>Ornamentadores Anyi</h3>
+        <div class="menu">
+            <a href="/">Inicio</a>
+            <a href="/productos">Productos</a>
+            <a href="/Contacto">Contacto</a>
+            <a href="/login.blade.php" class="right"><b>| Ingresar |</b></a>  
         </div>
-        <nav>
-            <ul>
-                <li><a href="/" class="white-text">Inicio</a></li>
-                <li><a href="/productos" class="white-text">Productos</a></li>
-                <li><a href="/Contacto" class="white-text">Ordenes</a></li>
-                @if (Auth::user())
-                    <li class="dropdown">
-                        <ul class="dropdown-content">
-                            <li><a href="usuarios" class="white-text">Usuarios</a></li>
-                         
-                            <li>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                    {{ __('Cerrar Sesión') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                @else
-                    <li><a href="/login" class="white-text">Iniciar Sesión</a></li>
-                @endif
-            </ul>
-        </nav>
-        <div class="mobile-menu">Menú</div>
     </header>
+
+    <script>
+       
+    </script>
 </body>
 
 </html>

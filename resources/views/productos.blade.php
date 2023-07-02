@@ -3,12 +3,7 @@
 <head>
     <title>Productos</title>
     <style>
-        .footer-wrapper {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-        }
+
     </style>
 </head>
 
