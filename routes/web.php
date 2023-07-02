@@ -3,6 +3,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\OrdenesController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,6 +32,10 @@ Route::get('/tareas', function () {
     return view('administrator/tareas');
 });
 
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
 Route::get('/pedidos', function () {
     return view('administrator/pedidos');
 });
@@ -38,7 +44,6 @@ Route::get('productos', [InventarioController::class, 'index']);
 Route::post('insertarProductos', [InventarioController::class, 'create'])->name('insertarProductos');
 Route::get('inactive/{id}', [InventarioController::class, 'inactiveProduct']);
 Route::post('actualizar', [InventarioController::class, 'updateProducto'])->name('actualizarProducto');
-Auth::routes();
 Route::get('usuarios', [UserController::class, 'showUsers']);
 Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
 Route::get('/users', [UserController::class, 'users'])->name('users');

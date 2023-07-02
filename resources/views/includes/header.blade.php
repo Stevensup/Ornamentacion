@@ -3,14 +3,15 @@
 
 <head>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 
         /* Estilos generales */
         html,
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Lora', serif;
+            font-family: 'Poppins', serif;
         }
 
         .header {
@@ -23,10 +24,12 @@
             align-items: center;
             height: 50px;
             padding: 0 20px;
-            background-color: #fff; /* Cambiado a color blanco */
+            background-color: #1d1792;
+            /* Cambiado a color blanco */
             z-index: 999;
             transition: background-color 0.3s;
-            font-family: 'Lora', serif; /* Aplica la fuente 'Lora' al header */
+            font-family: 'Poppins', serif;
+            /* Aplica la fuente 'Poppins' al header */
             font-size: 16px;
         }
 
@@ -51,16 +54,21 @@
             margin: 0 10px;
             padding: 5px;
             transition: background-color 0.3s;
+            color: #fff;
+            /* Cambiado a color blanco */
         }
 
         .header .menu a:hover {
-            background-color: #455c86; /* Cambiado a azul oscuro */
-            color: #fff; /* Cambiado a color blanco */
+            background-color: #f67267;
+            /* Cambiado a azul oscuro */
+            color: #fff;
+            /* Cambiado a color blanco */
         }
 
         .header .menu .right {
             position: relative;
-            right: -407px; /* Ajusta el valor en píxeles según tus necesidades */
+            right: -380px;
+            /* Ajusta el valor en píxeles según tus necesidades */
         }
 
         .logo img {
@@ -81,13 +89,23 @@
             <a href="/">Inicio</a>
             <a href="/productos">Productos</a>
             <a href="/Contacto">Contacto</a>
-            <a href="/login.blade.php" class="right"><b>| Ingresar |</b></a>  
+            @if (Auth::user())
+                <a href="usuarios">Usuarios</a>
+                <a class="right" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                    {{ __('Cerrar Sesión') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            @else
+                <a href="/login" class="right">Iniciar Sesión</a>
+            @endif
         </div>
     </header>
 
-    <script>
-       
-    </script>
+    <script></script>
 </body>
 
 </html>

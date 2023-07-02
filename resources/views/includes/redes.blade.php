@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Social Media Buttons</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
         /* Aplicar la fuente a los elementos de texto */
         body {
-            font-family: 'Lora', serif;
+            font-family: 'Poppins', serif;
         }
 
         .social-buttons {
@@ -24,7 +24,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-color: #7492a1;
+            background-color: #f67267 ;
             color: #fff;
             text-align: center;
             line-height: 50px;

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @include('includes.header')
+@include('includes.redes')
+@include('includes.footer')
 @section('content')
 <div class="container" style="background: linear-gradient(to bottom, #eeeeee, #dddddd);">
     <div class="container">

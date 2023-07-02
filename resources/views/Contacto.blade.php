@@ -7,12 +7,13 @@
     <title>Ornamentadores Anyi</title>
     <link rel="icon" type="image/png" href="{{ asset('images/LogoOrnamentador.png') }}">
     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
         /* Estilos generales */
         html,
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Lora', serif;
+            font-family: 'Poppins', serif;
         }
 
         .logo img {
@@ -112,21 +113,21 @@
 
         .name {
             background-color: #fff;
-            border-bottom: 5px solid #1C4357;
+            border-bottom: 5px solid #1d1792;
             color: #000;
             width: 200px;
         }
 
         .email {
             background-color: #fff;
-            border-bottom: 5px solid #1C4357;
+            border-bottom: 5px solid #1d1792;
             height: 50px;
             width: 200px;
         }
 
         .message {
             background-color: #fff;
-            border-bottom: 5px solid #1C4357;
+            border-bottom: 5px solid #1d1792;
             color: #000;
             overflow: hidden;
             height: 100px;
@@ -138,9 +139,9 @@
             padding: 10px;
             width: 150px;
             color: #fff;
-            background-color: #1C4357;
+            background-color: #1d1792;
             border: none;
-            border-bottom: 5px solid #1C4357;
+            border-bottom: 5px solid #1d1792;
         }
 
         .shadow {
@@ -301,5 +302,6 @@
         }
     </script>
 </body>
+@include('includes.redes')
 
 </html>

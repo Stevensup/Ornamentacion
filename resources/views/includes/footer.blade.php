@@ -3,14 +3,15 @@
 
 <head>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 
         /* Estilos generales */
         html,
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Lora', serif;
+            font-family: 'Poppins', serif;
         }
 
         .contenedor {
@@ -29,7 +30,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            font-family: 'Lora', serif; /* Aplica la fuente 'Lora' al footer */
+            font-family: 'Poppins', serif; /* Aplica la fuente 'Lora' al footer */
             font-size: 16px;
             text-align: center;
             transition: background-color 0.3s;

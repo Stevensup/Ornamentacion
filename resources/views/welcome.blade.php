@@ -2,7 +2,7 @@
 <html>
 @extends('includes.header')
 <head>
-    <title>Ornamentacion X</title>
+    <title>Ornamentacion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/css/bootstrap.min.css">
     <style>
         /* Estilos del carrusel */
@@ -52,17 +52,19 @@
     </style>
     <style>
         /* Agregar la fuente de Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 
         /* Aplicar la fuente a los elementos de texto */
         body {
-            font-family: 'Lora', serif;
+            font-family: 'Poppins', serif;
         }
+
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container">      
         <br>
         <br>
         <br>
@@ -100,7 +102,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <div class="mission" style="background-color: #B6DBED; padding: 20px;">
+                <div class="mission" style="background-color: #98b6f8 ; padding: 20px;">
                     <center>
                         <h1>Misión</h1>
                     </center>
@@ -110,7 +112,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="vision" style="background-color: #B6DBED; padding: 20px;">
+                <div class="vision" style="background-color: #98b6f8 ; padding: 20px;">
                     <center>
                         <h1>Visión</h1>
                     </center>
