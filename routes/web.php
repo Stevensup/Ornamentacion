@@ -25,6 +25,11 @@ Route::get('/', function () {
 Route::get('/Contacto', function () {
     return view('Contacto');
 });
+
+Route::get('/facturacion', function () {
+    return view('facturacion');
+});
+
 Route::post('/contacto', [OrdenesController::class, 'store'])->name('safemessage');
 
 

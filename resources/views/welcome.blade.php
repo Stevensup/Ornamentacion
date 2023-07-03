@@ -13,6 +13,12 @@
             /* Centra el carrusel horizontalmente */
         }
 
+         /* Establece un tamaño fijo para el contenedor del mapa */
+         #map {
+            height: 400px;
+            width: 100%;
+        }
+
         .carousel-item img {
             height: 300px;
             /* Ajusta la altura de las imágenes del carrusel según tus necesidades */
@@ -60,6 +66,13 @@
             font-family: 'Poppins', serif;
         }
 
+    </style>
+    <style>
+        /* Ajustar el tamaño del mapa de Google Maps */
+        #map {
+            height: 400px;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -141,10 +154,36 @@
         </div>
     </div>
     
+    <div id="map"></div>
+    
     </div>
     @extends('includes.redes')
     @extends('includes.footer')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/js/bootstrap.min.js"></script>
+    <script>
+        // Función para inicializar y cargar el mapa
+        function initMap() {
+            // Coordenadas del centro del mapa (puedes cambiarlas según tu preferencia)
+           var center = { lat: 4.6097, lng: -74.0817 };
+
+
+            // Crea un nuevo mapa en el elemento con el ID 'map'
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: center,
+                zoom: 12 // Nivel de zoom inicial (puedes ajustarlo según tu preferencia)
+            });
+
+            // Puedes agregar marcadores u otras capas en el mapa si lo deseas
+
+            // Ejemplo de marcador
+            var marker = new google.maps.Marker({
+                position: center,
+                map: map,
+                title: 'Ubicación'
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
 </body>
 </html>
