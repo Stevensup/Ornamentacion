@@ -1,11 +1,11 @@
 @extends('layouts.app')
-
+@extends('includes.header')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="background-color: #333; color: white;">{{ __('Registro') }}</div>
+                <div class="card-header" style="background-color: #1d1792; color: white;">{{ __('Registro') }}</div>
 
                 <div class="card-body" style="background-color: #f8f8f8;">
                     <form method="POST" action="{{ route('register') }}">
@@ -18,7 +18,7 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus style="background-color: #ddd; color: #333;">
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert" style="color: #ff0000;">
+                                    <span class="invalid-feedback" role="alert" style="color: #f67267;">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -32,7 +32,7 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" style="background-color: #ddd; color: #333;">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert" style="color: #ff0000;">
+                                    <span class="invalid-feedback" role="alert" style="color: #f67267;">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -46,7 +46,7 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" style="background-color: #ddd; color: #333;">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert" style="color: #ff0000;">
+                                    <span class="invalid-feedback" role="alert" style="color: #f67267;">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -68,7 +68,7 @@
                                 <input id="edad" type="number" class="form-control @error('edad') is-invalid @enderror" name="edad" value="{{ old('edad') }}" required style="background-color: #ddd; color: #333;">
 
                                 @error('edad')
-                                    <span class="invalid-feedback" role="alert" style="color: #ff0000;">
+                                    <span class="invalid-feedback" role="alert" style="color: #f67267;">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -85,7 +85,7 @@
                                 </select>
 
                                 @error('genero')
-                                    <span class="invalid-feedback" role="alert" style="color: #ff0000;">
+                                    <span class="invalid-feedback" role="alert" style="color: #f67267;">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -94,7 +94,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" style="background-color: #cc0000; border-color: #cc0000;">
+                                <button type="submit" class="btn btn-primary" style="background-color: #f67267; border-color: #f67267;">
                                     {{ __('Registrarse') }}
                                 </button>
                             </div>
@@ -106,3 +106,5 @@
     </div>
 </div>
 @endsection
+@extends('includes.footer')
+@extends('includes.redes')
