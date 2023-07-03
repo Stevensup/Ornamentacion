@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 @extends('includes.header')
+
 <head>
     <title>Ornamentacion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/css/bootstrap.min.css">
@@ -13,8 +14,8 @@
             /* Centra el carrusel horizontalmente */
         }
 
-         /* Establece un tamaño fijo para el contenedor del mapa */
-         #map {
+        /* Establece un tamaño fijo para el contenedor del mapa */
+        #map {
             height: 400px;
             width: 100%;
         }
@@ -65,7 +66,6 @@
         body {
             font-family: 'Poppins', serif;
         }
-
     </style>
     <style>
         /* Ajustar el tamaño del mapa de Google Maps */
@@ -73,11 +73,27 @@
             height: 400px;
             width: 100%;
         }
+
+        .boton-estilo {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #98b6f8;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .boton-estilo:hover {
+            background-color: #98b6f8;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">      
+    <div class="container">
         <br>
         <br>
         <br>
@@ -115,29 +131,35 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <div class="mission" style="background-color: #98b6f8; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); margin-bottom: 20px;">
+                <div class="mission"
+                    style="background-color: #98b6f8; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); margin-bottom: 20px;">
                     <center>
                         <h1>Misión</h1>
                     </center>
-                    <p>Ser una empresa líder a nivel nacional brindando soluciones en el mercado de los servicios que ofrecemos,
-                        garantizando la calidad de nuestros servicios y productos, actualizándonos constantemente de acuerdo a la
+                    <p>Ser una empresa líder a nivel nacional brindando soluciones en el mercado de los servicios que
+                        ofrecemos,
+                        garantizando la calidad de nuestros servicios y productos, actualizándonos constantemente de
+                        acuerdo a la
                         tendencia en tecnología.</p>
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="vision" style="background-color: #98b6f8; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); margin-bottom: 20px;">
+                <div class="vision"
+                    style="background-color: #98b6f8; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0,0,0,0.3); margin-bottom: 20px;">
                     <center>
                         <h1>Visión</h1>
                     </center>
-                    <p>Ser una empresa líder a nivel nacional brindando soluciones en el mercado de los servicios que ofrecemos,
-                        garantizando la calidad de nuestros servicios y productos, actualizándonos constantemente de acuerdo a
+                    <p>Ser una empresa líder a nivel nacional brindando soluciones en el mercado de los servicios que
+                        ofrecemos,
+                        garantizando la calidad de nuestros servicios y productos, actualizándonos constantemente de
+                        acuerdo a
                         la tendencia en tecnología.</p>
                 </div>
             </div>
         </div>
     </div>
-    
-   
+
+
     <div style="margin: 2cm;">
         <br>
         <center>
@@ -146,18 +168,29 @@
         <div class="row">
             <div class="col-lg-6" style="center;">
                 <br>
-                <p>Somos una empresa de ornamentación dedicada a embellecer espacios y crear ambientes únicos. Nuestra pasión por el arte y el diseño nos impulsa a ofrecer soluciones personalizadas y creativas para satisfacer las necesidades de nuestros clientes. Con años de experiencia en el sector, contamos con un equipo de expertos en ornamentación que dominan diferentes técnicas y estilos, desde la elaboración de esculturas y murales hasta la selección de elementos decorativos y la creación de composiciones florales. Nos enorgullece convertir cada lugar en un rincón especial, lleno de belleza y armonía, transformando ideas en realidades visibles y emocionantes. Nuestro compromiso es brindar un servicio de alta calidad, con atención al detalle y un enfoque orientado al cliente, superando siempre las expectativas. Bienvenidos a nuestro mundo de ornamentos, donde la creatividad se convierte en arte.</p>
+                <p>Somos una empresa de ornamentación dedicada a embellecer espacios y crear ambientes únicos. Nuestra
+                    pasión por el arte y el diseño nos impulsa a ofrecer soluciones personalizadas y creativas para
+                    satisfacer las necesidades de nuestros clientes. Con años de experiencia en el sector, contamos con
+                    un equipo de expertos en ornamentación que dominan diferentes técnicas y estilos, desde la
+                    elaboración de esculturas y murales hasta la selección de elementos decorativos y la creación de
+                    composiciones florales. Nos enorgullece convertir cada lugar en un rincón especial, lleno de belleza
+                    y armonía, transformando ideas en realidades visibles y emocionantes. Nuestro compromiso es brindar
+                    un servicio de alta calidad, con atención al detalle y un enfoque orientado al cliente, superando
+                    siempre las expectativas. Bienvenidos a nuestro mundo de ornamentos, donde la creatividad se
+                    convierte en arte.</p>
             </div>
-            <div class="col-lg-6" style="text-align: right; background-color: #a5c0f2 ; padding: 20px; border-radius: 10px;">
+            <div class="col-lg-6"
+                style="text-align: right; background-color: #a5c0f2 ; padding: 20px; border-radius: 10px;">
                 <br>
-                <img src="{{ asset('images/prin/Hombre con protección.png') }}" alt="Quiénes Somos" style="border-radius: 10px; border: 5px solid #fff; transform: none; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);">
+                <img src="{{ asset('images/prin/Hombre con protección.png') }}" alt="Quiénes Somos"
+                    style="border-radius: 10px; border: 5px solid #fff; transform: none; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);">
             </div>
-            
         </div>
+        <a href="/Contacto" class="boton-estilo">Contáctanos</a>
     </div>
-    
+
     <div id="map"></div>
-    
+
     </div>
     @extends('includes.redes')
     @extends('includes.footer')
@@ -167,7 +200,10 @@
         // Función para inicializar y cargar el mapa
         function initMap() {
             // Coordenadas del centro del mapa (puedes cambiarlas según tu preferencia)
-           var center = { lat: 4.6097, lng: -74.0817 };
+            var center = {
+                lat: 4.6097,
+                lng: -74.0817
+            };
 
 
             // Crea un nuevo mapa en el elemento con el ID 'map'
@@ -188,4 +224,5 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
 </body>
+
 </html>
