@@ -7,7 +7,8 @@
     <title>Ornamentadores Anyi</title>
     <link rel="icon" type="image/png" href="{{ asset('images/LogoOrnamentador.png') }}">
     <style>
-         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
         /* Estilos generales */
         html,
         body {
@@ -42,6 +43,11 @@
             padding: 20px;
             background-color: #ffffff;
             margin: 0 0 80px;
+            background-image: url('{{ asset('images/prin/Contact.png') }}');
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            background-size: auto 110%;
+            opacity: 0.6;
         }
 
         h1 {
