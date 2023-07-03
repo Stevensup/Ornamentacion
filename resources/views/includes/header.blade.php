@@ -91,6 +91,7 @@
             <a href="/Contacto">Contacto</a>
             @if (Auth::user())
                 <a href="usuarios">Usuarios</a>
+                <a href="/facturacion">facturacion</a>
                 <a class="right" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
