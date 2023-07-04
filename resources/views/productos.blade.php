@@ -28,17 +28,28 @@
     <div class="my-5 ms-5 me-2">
 
         <div class="row my-5">
-            <center>
-                <div class="col-10 col-md-9 text-center">
-                    <h1>Productos</h1>
-                </div>
-                @if (Auth::user() && Auth::user()->rol == 1)
-                    <div class="col-2 col-md-3">
-                        <button type="button" class="btn btn-primary w-100 custom-button" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">Adicionar Producto</button>
+            <div class="col-md-10">
+                <center>
+                    <div class="col-10 col-md-9 text-center">
+                        <h1>Productos</h1>
                     </div>
-                @endif
-            </center>
+                    @if (Auth::user() && Auth::user()->rol == 1)
+                        <div class="col-2 col-md-3">
+                            <button type="button" class="btn btn-primary w-100 custom-button" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Adicionar Producto</button>
+                        </div>
+                    @endif
+                </center>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary position-relative">
+                    Carrito
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{$totalDespacho}}
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </button>
+            </div>
         </div>
 
         @if (session('alert'))

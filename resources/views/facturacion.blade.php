@@ -6,6 +6,7 @@
     <br>
     @extends('includes.header')
     <title>Facturación y Carrito de Compra</title>
+
     <style>
         /* Agregar la fuente de Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
@@ -136,11 +137,11 @@
             <div class="content">
                 <div class="info">
                     <strong>Cliente:</strong>
-                    <span>{{Auth::user()->name}}</span>
+                    <span>{{ Auth::user()->name }}</span>
                 </div>
                 <div class="info">
                     <strong>Fecha:</strong>
-                    <span>{{ now()}}</span>
+                    <span>{{ now() }}</span>
                 </div>
                 <table>
                     <thead>
@@ -153,12 +154,12 @@
                     </thead>
                     <tbody>
                         @foreach ($productos as $producto)
-                        <tr>
-                            <td>{{$producto->nombre}}</td>
-                            <td>{{$producto->cantidad_despacho}}</td>
-                            <td>${{number_format($producto->precio_unitario, 0, ',', '.')}}</td>
-                            <td>${{ number_format($producto->total_producto, 0, ',', '.') }}</td>
-                        </tr>
+                            <tr>
+                                <td>{{ $producto->nombre }}</td>
+                                <td>{{ $producto->cantidad_despacho }}</td>
+                                <td>${{ number_format($producto->precio_unitario, 0, ',', '.') }}</td>
+                                <td>${{ number_format($producto->total_producto, 0, ',', '.') }}</td>
+                            </tr>
                         @endforeach
                         {{-- <tr>
                             <td>Producto 2</td>
@@ -170,7 +171,7 @@
                 </table>
                 <div class="info-total">
                     <strong>Total:</strong>
-                    <span>${{ number_format($total_productos, 0, ',', '.')}}</span>
+                    <span>${{ number_format($total_productos, 0, ',', '.') }}</span>
                     <div class="pdf-button">
                         <button onclick="generatePDF()">Generar PDF</button>
                     </div>
@@ -181,7 +182,11 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
     <script>
         function generatePDF() {
             const doc = new jsPDF();
