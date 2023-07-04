@@ -1,7 +1,9 @@
 <?php
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\FacturacionController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\OrdenesController;
+use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +31,11 @@ Route::get('/Contacto', function () {
 Route::get('/facturacion', function () {
     return view('facturacion');
 });
+
+Route::get('indexCart', [ShoppingCartController::class, 'index']);
+Route::post('addProduct',[ShoppingCartController::class, 'agregarProducto'])->name('addProduct');
+
+Route::get('indexFacturacion', [FacturacionController::class, 'index']);
 
 Route::post('/contacto', [OrdenesController::class, 'store'])->name('safemessage');
 

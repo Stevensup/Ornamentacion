@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Despacho;
 use App\Models\Inventario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class InventarioController extends Controller
@@ -11,6 +13,18 @@ class InventarioController extends Controller
     function index(){
 
         $inventarios = Inventario::where('estado', 1)->get();
+
+        if(Auth::user() !== null){
+            foreach ($inventarios as $inventario) {
+                $despacho = Despacho::where('id_inventarios', $inventario->id, )->where('user_id', Auth::user()->id)->get();
+
+                if(count($despacho) > 0){
+                    $inventario->cantidad_despacho = $despacho[0]->cantidad_despacho;
+                }
+                //dd($despacho, $inventario);
+            }
+        }
+
 
         return view('productos', ['inventarios' => $inventarios]);
     }

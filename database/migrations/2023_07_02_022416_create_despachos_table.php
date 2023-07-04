@@ -12,12 +12,12 @@ class CreateDespachosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('id_inventarios');
-            $table->integer('cantidad');
+            $table->integer('cantidad_despacho');
             $table->timestamps();
 
             // Establecer relación con la tabla "users"
             $table->foreign('user_id')->references('id')->on('users');
-            
+
             // Establecer relación con la tabla "inventarios"
             $table->foreign('id_inventarios')->references('id')->on('inventarios');
         });

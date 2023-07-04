@@ -136,11 +136,11 @@
             <div class="content">
                 <div class="info">
                     <strong>Cliente:</strong>
-                    <span>Nombre completo del cliente</span>
+                    <span>{{Auth::user()->name}}</span>
                 </div>
                 <div class="info">
                     <strong>Fecha:</strong>
-                    <span>01 de Julio de 2023</span>
+                    <span>{{ now()}}</span>
                 </div>
                 <table>
                     <thead>
@@ -152,23 +152,25 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($productos as $producto)
                         <tr>
-                            <td>Producto 1</td>
-                            <td>2</td>
-                            <td>$10</td>
-                            <td>$20</td>
+                            <td>{{$producto->nombre}}</td>
+                            <td>{{$producto->cantidad_despacho}}</td>
+                            <td>${{number_format($producto->precio_unitario, 0, ',', '.')}}</td>
+                            <td>${{ number_format($producto->total_producto, 0, ',', '.') }}</td>
                         </tr>
-                        <tr>
+                        @endforeach
+                        {{-- <tr>
                             <td>Producto 2</td>
                             <td>1</td>
                             <td>$15</td>
                             <td>$15</td>
-                        </tr>
+                        </tr> --}}
                     </tbody>
                 </table>
                 <div class="info-total">
                     <strong>Total:</strong>
-                    <span>$35</span>
+                    <span>${{ number_format($total_productos, 0, ',', '.')}}</span>
                     <div class="pdf-button">
                         <button onclick="generatePDF()">Generar PDF</button>
                     </div>

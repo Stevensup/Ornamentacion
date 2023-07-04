@@ -1,5 +1,6 @@
     @include('includes.header')
     @extends('layouts.app')
+
     <head>
         <title>Productos</title>
         <style>
@@ -24,7 +25,7 @@
         </style>
     </head>
 
-    <div class="my-5 mx-2">
+    <div class="my-5 ms-5 me-2">
 
         <div class="row my-5">
             <center>
@@ -39,6 +40,18 @@
                 @endif
             </center>
         </div>
+
+        @if (session('alert'))
+            <div class="alert alert-danger">
+                {{ session('alert') }}
+            </div>
+        @endif
+
+        @if (session('alertSucces'))
+            <div class="alert alert-success">
+                {{ session('alertSucces') }}
+            </div>
+        @endif
 
         <div class="row">
             @if ($inventarios->count() == 0)
@@ -58,16 +71,41 @@
                             </div>
                             <div class="card-footer">
                                 <div class="row">
-                                    <div class="col-md-6 d-flex justify-content-center">
-                                        <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                                    <div class="col-md-8 d-flex justify-content-center">
+                                        @if (!Auth::user())
+                                            <a href="{{ Auth::user() ? '#' : '/login' }}"
+                                                class="btn btn-primary">Agregar al carrito</a>
+                                        @else
+                                            <form method="POST" action="{{ route('addProduct') }}">
+                                                @csrf
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <input value="{{ $inventario->cantidad_despacho }}"
+                                                            type="number" id="cantidad" name="cantidad"
+                                                            @error('cantidad') is-invalid @enderror" name="cantidad"
+                                                            required autocomplete="cantidad" autofocus>
+                                                        @error('cantidad')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <input type="hidden" id='inventario_id' name="inventario_id"
+                                                            value='{{ $inventario->id }}'>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <button class="btn btn-outline-success">Agregar</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        @endif
                                     </div>
                                     @if (Auth::user() && Auth::user()->rol == 1)
-                                        <div class="col-md-3 d-flex justify-content-center">
+                                        <div class="col-md-2 d-flex justify-content-center">
                                             <button type="button" class="btn btn-warning w-100" data-bs-toggle="modal"
                                                 data-bs-target="#edicionModal-{{ $inventario->id }}"><i
                                                     class="fas fa-pen-to-square fs-2"></i></button>
                                         </div>
-                                        <div class="col-md-3 d-flex justify-content-center align-items-center">
+                                        <div class="col-md-2 d-flex justify-content-center align-items-center">
                                             <a type="button" href="inactive/{{ $inventario->id }}"><i
                                                     class="far fa-trash-can fs-2"></i></a>
                                         </div>
@@ -80,12 +118,14 @@
             @endif
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title" id="exampleModalLabel">Crear Producto</h4>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
                         </div>
                         <form method="POST" action="{{ route('insertarProductos') }}" enctype="multipart/form-data">
                             @csrf
@@ -93,7 +133,8 @@
                                 <label for="nombreProducto" class="form-label">Nombre del producto</label>
                                 <input type="text" class="form-control" id="nombreProducto"
                                     @error('nombreProducto') is-invalid @enderror" name="nombreProducto"
-                                    value="{{ old('nombreProducto') }}" required autocomplete="nombreProducto" autofocus>
+                                    value="{{ old('nombreProducto') }}" required autocomplete="nombreProducto"
+                                    autofocus>
                                 @error('nombreProducto')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -115,8 +156,8 @@
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Imagen del producto</label>
                                 <input class="form-control" accept=".png, .jpg, .jpeg" type="file" id="formFile"
-                                    @error('formFile') is-invalid @enderror" name="formFile" value="{{ old('formFile') }}"
-                                    required autocomplete="formFile" autofocus>
+                                    @error('formFile') is-invalid @enderror" name="formFile"
+                                    value="{{ old('formFile') }}" required autocomplete="formFile" autofocus>
 
                                 @error('formFile')
                                     <span class="invalid-feedback" role="alert">
@@ -128,8 +169,8 @@
                             <div class="mb-3">
                                 <label for="cantidad" class="form-label">Cantidad</label>
                                 <input type="number" id="cantidad" class="form-control"
-                                    @error('cantidad') is-invalid @enderror" name="cantidad" value="{{ old('cantidad') }}"
-                                    required autocomplete="cantidad" autofocus>
+                                    @error('cantidad') is-invalid @enderror" name="cantidad"
+                                    value="{{ old('cantidad') }}" required autocomplete="cantidad" autofocus>
                                 @error('cantidad')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -151,7 +192,8 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Save changes</button>
                             </div>
                         </form>
@@ -199,8 +241,8 @@
 
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Imagen del producto</label>
-                                    <input class="form-control" accept=".png, .jpg, .jpeg" type="file" id="formFile"
-                                        @error('formFile') is-invalid @enderror" name="formFile"
+                                    <input class="form-control" accept=".png, .jpg, .jpeg" type="file"
+                                        id="formFile" @error('formFile') is-invalid @enderror" name="formFile"
                                         value="{{ old('formFile') }}" required autocomplete="formFile" autofocus>
 
                                     @error('formFile')
