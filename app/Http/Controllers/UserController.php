@@ -10,7 +10,7 @@ class UserController extends Controller
     public function showUsers()
     {
         $users = User::all(); // Obtener todos los usuarios desde el modelo User
-        
+
         // dd($users);
          return view('Administrator.usuarios', ['users' => $users]);
     }
@@ -34,21 +34,22 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id); // Obtener el usuario por su ID
 
+
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            'edad' => 'required|integer',
-            'genero' => 'required|in:masculino,femenino',
-            'rol' => 'required|in:1,2,3',
-            'estado' => 'required|boolean',
+            'name' => 'required',
+            'email' => 'required',
+            'edad' => 'required',
+            'genero' => 'required',
+            'rol' => 'required'
         ]);
+
 
         $user->name = $request->name;
         $user->email = $request->email;
         $user->edad = $request->edad;
         $user->genero = $request->genero;
         $user->rol = $request->rol;
-        $user->estado = $request->estado;
+        $user->estado = $request->estado == null ? false : true;
         $user->save();
 
         return redirect()->route('users')->with('success', 'Usuario actualizado exitosamente');
