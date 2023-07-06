@@ -67,7 +67,7 @@
 
         .header .menu .right {
             position: relative;
-            right: -380px;
+            right: -340px;
             /* Ajusta el valor en píxeles según tus necesidades */
         }
 
@@ -85,6 +85,9 @@
         <div class="logo">
             <img src="{{ asset('images/Logo.png') }}" alt="Logo">
         </div>
+        @if (Auth::user())
+        <span style="color:#fff; font-size: 15px">Bienvenido, {{ Auth::user()->name }}</span>
+        @endif
         <div class="menu">
             <a href="/">Inicio</a>
             <a href="/productos">Productos</a>
@@ -92,9 +95,11 @@
             @if (Auth::user())
                 <a href="usuarios">Usuarios</a>
                 <a href="/indexFacturacion">Facturacion</a>
-                <a class="right" href="{{ route('logout') }}"
+                <a class="right  float: right;
+                margin-right: 20px;" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
+                    
                     {{ __('Cerrar Sesión') }}
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

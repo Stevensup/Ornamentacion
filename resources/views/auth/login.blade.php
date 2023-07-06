@@ -111,9 +111,6 @@
     </div>
     <div class="gif-container">
         <center>
-            <div class="gif">
-                <img src="{{ asset('images/prin/login.gif') }}" alt="Login GIF">
-            </div>
         </center>
     </div>
 @endsection
