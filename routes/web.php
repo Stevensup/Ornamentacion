@@ -27,7 +27,9 @@ Route::get('/', function () {
 Route::get('/Contacto', function () {
     return view('Contacto');
 });
-
+Route::get('/Servicios', function () {
+    return view('Servicios');
+});
 Route::get('/facturacion', function () {
     return view('facturacion');
 });

@@ -91,6 +91,7 @@
         <div class="menu">
             <a href="/">Inicio</a>
             <a href="/productos">Productos</a>
+            <a href="/Servicios">Servicios</a>
             <a href="/Contacto">Contacto</a>
             @if (Auth::user())
                 <a href="usuarios">Usuarios</a>

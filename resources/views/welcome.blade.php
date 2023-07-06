@@ -91,7 +91,8 @@
         }
     </style>
 </head>
-
+<title>Ornamentadores Anyi</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/Logo.png') }}">
 <body>
     <div class="container">
         <br>

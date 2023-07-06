@@ -124,7 +124,7 @@
 
 <body>
     <h1>Facturación</h1>
-
+    <link rel="icon" type="image/png" href="images\Logo.png">
     <div class="invoice-container">
         <div class="image-container">
             <img src="{{ asset('images/prin/shop.jpg') }}" alt="Quiénes Somos">
