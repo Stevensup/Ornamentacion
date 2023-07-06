@@ -24,4 +24,10 @@ class OrdenesController extends Controller
         // Redirigir a una página de éxito o mostrar un mensaje de éxito
         return redirect()->back()->with('success', 'Mensaje enviado correctamente');
     }
+
+    public function index()
+    {
+        $ordenes = Orden::all();
+        return view('Empleado',['ordenes' => $ordenes]);
+    }
 }

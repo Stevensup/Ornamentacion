@@ -3,6 +3,8 @@
 @include('includes.redes')
 @include('includes.footer')
 @section('content')
+<title>Ornamentacion</title>
+<link rel="icon" type="image/png" href="{{ asset('images/Logo.png') }}">
     <center>
         <div class="col-lg-6" style="">
             <br>

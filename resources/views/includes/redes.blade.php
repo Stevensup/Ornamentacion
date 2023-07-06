@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Ornamentacion</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/Logo.png') }}">
     <style>
          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 

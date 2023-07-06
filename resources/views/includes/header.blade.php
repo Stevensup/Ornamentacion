@@ -67,7 +67,7 @@
 
         .header .menu .right {
             position: relative;
-            right: -340px;
+            right: -300px;
             /* Ajusta el valor en píxeles según tus necesidades */
         }
 
@@ -96,6 +96,9 @@
             @if (Auth::user())
                 <a href="usuarios">Usuarios</a>
                 <a href="/indexFacturacion">Facturacion</a>
+                @if (Auth::user()->rol==2 || Auth::user()->rol==1 )
+                <a href="/Empleado">Tareas Empleado</a>
+                @endif
                 <a class="right  float: right;
                 margin-right: 20px;" href="{{ route('logout') }}"
                     onclick="event.preventDefault();

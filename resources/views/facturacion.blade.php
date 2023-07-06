@@ -6,6 +6,7 @@
     <br>
     @extends('includes.header')
     <title>Facturación y Carrito de Compra</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/Logo.png') }}">
 
     <style>
         /* Agregar la fuente de Google Fonts */

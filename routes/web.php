@@ -27,6 +27,10 @@ Route::get('/', function () {
 Route::get('/Contacto', function () {
     return view('Contacto');
 });
+
+
+Route::get('/Empleado', [OrdenesController::class, 'index']);
+
 Route::get('/Servicios', function () {
     return view('Servicios');
 });
@@ -51,7 +55,7 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/pedidos', function () {
-    return view('administrator/pedidos');
+    return view('pedidos');
 });
 
 Route::get('productos', [InventarioController::class, 'index']);
