@@ -104,9 +104,10 @@ body{
     @include('includes.header')
 
     <div class="services-section">
-      <h2>Servicios de Ornamentación y Soldadura</h2>
-      <p>En Ornamentadores SAS ofrecemos una amplia gama de servicios relacionados con la decoración y ornamentación, y soldadura de espacios para satisfacer las necesidades de nuestros clientes. Nuestro equipo trabaja con pasión y dedicación para brindar resultados excepcionales en cada proyecto. Algunos de los servicios comunes que podría ofrecer nuestra empresa incluyen:</p>
-  
+      <center>
+      <h1>Servicios de Ornamentación y Soldadura</h1>
+      </center>
+      <br>
     <div class="cajas">  
       <div class="services">
             <img src="images/welding.webp" alt="FABRICACIÓN DE PRODUCTOS">
@@ -141,7 +142,7 @@ body{
       </div>
 
       </div>
-
+      <br>
       <div class="boton">
             <a  href="https://docs.google.com/forms/d/1ohEwm3wt_3fuL4E2FvM1-Fa57dT8WgqXB1xOlHl-yic/prefill">Enviar novedades de algún servicio</a>
         </div>
