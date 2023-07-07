@@ -95,7 +95,7 @@
                                                         <input value="{{ $inventario->cantidad_despacho }}"
                                                             type="number" id="cantidad" name="cantidad"
                                                             @error('cantidad') is-invalid @enderror" name="cantidad"
-                                                            required autocomplete="cantidad" autofocus>
+                                                            required autocomplete="cantidad" autofocus class="form-control form-control-sm">
                                                         @error('cantidad')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -112,14 +112,14 @@
                                         @endif
                                     </div>
                                     @if (Auth::user() && Auth::user()->rol == 1)
-                                        <div class="col-md-2 d-flex justify-content-center">
+                                        <div class="col-md-3 d-flex justify-content-center">
                                             <button type="button" class="btn btn-warning w-100" data-bs-toggle="modal"
                                                 data-bs-target="#edicionModal-{{ $inventario->id }}"><i
-                                                    class="fas fa-pen-to-square fs-2"></i></button>
+                                                    class="fas fa-pen-to-square fs-2"></i>Editar</button>
                                         </div>
-                                        <div class="col-md-2 d-flex justify-content-center align-items-center">
-                                            <a type="button" href="inactive/{{ $inventario->id }}"><i
-                                                    class="far fa-trash-can fs-2"></i></a>
+                                        <div class="col-md-3 d-flex justify-content-center">
+                                            <a type="button" href="inactive/{{ $inventario->id }}" class="btn btn-warning w-100"><i
+                                                    class="far fa-trash-can fs-2"></i>Borrar</a>
                                         </div>
                                     @endif
                                 </div>
